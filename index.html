@@ -61,10 +61,11 @@
         <div class="row">
             <div class="col-md-12" style="padding-top: 2em;">
                 <p style="text-align: center;">
-                    <a href="https://github.com/jaredpetersen/whatcolor" target="_blank">
-                        <img src="assets/github.png" width="16px"></img>
-                    </a>
+                    <a href="#" onClick="PopupCenter('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjaredpetersen.github.io%2Fwhatcolor%2F', 'What Color?', '600', '330');"><img src="assets/sharebutton.png" style="margin-top: -13px; height: 19px;"></a>
+                    &nbsp;&nbsp;
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbit.ly%2F1R1UPby&text=What+color+are+you%3F&hashtags=whatcolor" data-count="none">Tweet</a>
                 </p>
+                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
         </div>
     </div> <!-- /container -->
@@ -77,5 +78,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- Angular JS -->
     <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- Twitter -->
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+    <!-- Facebook -->
+    <script>
+    function PopupCenter(url, title, w, h) {
+        // Fixes dual-screen position                         Most browsers      Firefox
+        var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+        width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+        var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+        var top = ((height / 2) - (h / 2)) + dualScreenTop;
+        var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+        // Puts focus on the newWindow
+        if (window.focus) {
+            newWindow.focus();
+        }
+        }
+    </script>
   </body>
 </html>
